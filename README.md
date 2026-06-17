@@ -18,6 +18,19 @@ The goal is not to fully reproduce the paper. Instead, this repo checks a few cl
 - Basic math evaluation harness added
 - Results saved to `results/math_basic_results.csv`
 
+## Initial Results
+
+Basic math evaluation on 5 simple verifiable reasoning questions:
+
+| Metric | Result |
+|---|---:|
+| Questions tested | 5 |
+| Correct answers | 5 |
+| Accuracy | 100% |
+| Latency range | 10.72s - 19.71s per question |
+
+These results only show that the model can run locally and solve a tiny sanity-check set. They should not be interpreted as confirmation of the full benchmark claims from the paper.
+
 ## Setup
 
 Create and activate a virtual environment:
