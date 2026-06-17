@@ -1,0 +1,315 @@
+id,question,expected,prediction,correct,latency_sec,response
+reasoning_001,"A store gives a 20 percent discount on a $50 jacket. After the discount, there is 13 percent tax. What is the final price?",45.20,45.20,True,21.38,"<think>We need to compute: original price $50. 20% discount => discount amount = 20% of 50 = 0.20*50 = $10. So discounted price = 50 - 10 = $40.
+
+Then after discount, there is 13% tax applied to the discounted price. So tax = 13% of $40 = 0.13*40 = $5.20. So final price = $40 + $5.20 = $45.20.
+
+Thus answer: \boxed{45.20}.
+
+But we need to ensure formatting: maybe they want a dollar sign? Usually they'd want numeric answer. We'll output \boxed{45.20}. Or maybe \boxed{\$45.20}. The problem says ""final price?"" Usually they'd want $45.20. But they said ""put your final answer within \boxed{}"". So we can include the dollar sign inside the box: \boxed{\$45.20}. But typical AoPS style: \boxed{45.20}. Let's see. The problem: ""A store gives a 20 percent discount on a $50 jacket. After the discount, there is 13 percent tax. What is the final price?"" Usually they'd want a numeric answer like 45.20. I'd answer \boxed{45.20}. Provide step-by-step reasoning.
+
+Thus final answer: \boxed{45.20}.</think>First, compute the discount:
+
+\[
+\text{Discount} = 20\% \times \$50 = 0.20 \times 50 = \$10.
+\]
+
+Subtract the discount from the original price to get the discounted price:
+
+\[
+\text{Discounted price} = \$50 - \$10 = \$40.
+\]
+
+Next, compute the tax on the discounted price:
+
+\[
+\text{Tax} = 13\% \times \$40 = 0.13 \times 40 = \$5.20.
+\]
+
+Add the tax to the discounted price to obtain the final price:
+
+\[
+\text{Final price} = \$40 + \$5.20 = \$45.20.
+\]
+
+\[
+\boxed{45.20}
+\]"
+reasoning_002,Maya has twice as many marbles as Leo. Together they have 36 marbles. How many marbles does Maya have?,24,24,True,9.71,"<think>We need to solve a simple word problem: Maya has twice as many marbles as Leo. Together they have 36 marbles. Let L = number Leo has, M = number Maya has = 2L. So total M + L = 36 => 2L + L = 36 => 3L = 36 => L = 12. Then M = 24. So answer: 24. Provide step-by-step reasoning and final answer in \boxed{24}.</think>Let \(L\) be the number of marbles Leo has.  
+Since Maya has twice as many, she has \(2L\) marbles.
+
+Together they have 36 marbles:
+\[
+L + 2L = 36 \implies 3L = 36.
+\]
+
+Solve for \(L\):
+\[
+L = \frac{36}{3} = 12.
+\]
+
+So Maya has:
+\[
+2L = 2 \times 12 = 24.
+\]
+
+\[
+\boxed{24}
+\]"
+reasoning_003,"A car uses 6 liters of fuel to travel 90 km. At the same rate, how many liters are needed to travel 150 km?",10,10,True,31.85,"<think>We need to solve a simple proportion: 6 liters for 90 km. So fuel consumption rate: 6 liters / 90 km = 0.067777... liters per km. Or 6/90 = 1/15 liters per km. For 150 km, liters needed = (1/15)*150 = 150/15 = 10 liters. So answer: 10 liters.
+
+But we need to reason step by step. Provide reasoning. Then final answer in \boxed{10}. Ensure no extra text after the box. The instruction: ""Please reason step by step, and put your final answer within \boxed{}. Please reason step-by-step and put your final answer within \boxed{} in the end."" So we need to produce reasoning and then final answer in a box. The final answer should be just the number inside \boxed{}.
+
+Thus answer: \boxed{10}.
+
+But we need to ensure we follow the instruction: ""put your final answer within \boxed{}."" So we need to output something like:
+
+Step 1: Determine the fuel per km: 6 liters / 90 km = 1/15 liter per km.
+
+Step 2: Multiply by 150 km: (1/15) * 150 = 10 liters.
+
+Thus answer: \boxed{10}.
+
+Make sure no extra text after the box. Possibly we can include text before the box. The instruction: ""Please reason step by step, and put your final answer within \boxed{}."" So we can have reasoning then final answer. The final answer must be in \boxed{} and no other text after it. So we can have something like:
+
+The car uses 6 L for 90 km, so the consumption rate is 6/90 = 1/15 L per km. For 150 km, required fuel = (1/15) * 150 = 10 L. Therefore, the answer is \boxed{10}.
+
+Make sure no trailing text after the box. That should be fine.
+
+Thus final answer: \boxed{10}.</think>The car uses \(6\) liters to travel \(90\) km, so its fuel consumption rate is  
+
+\[
+\frac{6\text{ L}}{90\text{ km}} = \frac{1}{15}\text{ L/km}.
+\]
+
+To find the liters needed for \(150\) km, multiply the rate by the distance:
+
+\[
+\frac{1}{15}\text{ L/km} \times 150\text{ km} = \frac{150}{15}\text{ L} = 10\text{ L}.
+\]
+
+Thus, the car needs \(\boxed{10}\) liters to travel 150 km."
+reasoning_004,The average of three numbers is 18. Two of the numbers are 12 and 21. What is the third number?,21,21,True,8.7,"<think>We need to answer: average of three numbers is 18, two numbers are 12 and 21, find third. Average = sum/3 = 18 => sum = 54. Sum of known numbers = 12+21 = 33. Third = 54-33 = 21. So answer is 21. Put in \boxed{21}.</think>The average of three numbers is 18, so the total sum of the three numbers is  
+
+\[
+3 \times 18 = 54.
+\]
+
+We are given two of the numbers: 12 and 21. Their sum is  
+
+\[
+12 + 21 = 33.
+\]
+
+Let the third number be \(x\). Then  
+
+\[
+33 + x = 54 \implies x = 54 - 33 = 21.
+\]
+
+Thus, the third number is  
+
+\[
+\boxed{21}.
+\]"
+reasoning_005,A laptop price is reduced from $800 to $680. What is the percentage decrease?,15,15\%,False,26.33,"<think>We need to compute percentage decrease from $800 to $680. The decrease is 800 - 680 = $120. Percentage decrease relative to original price (800) is (120/800)*100% = 0.15*100% = 15%. So answer is 15%. Put in \boxed{15\%}.
+
+But we need to reason step by step. Provide reasoning. Then final answer in \boxed{}. Ensure final answer includes the percent sign inside the box? Usually they'd want just number. But they said ""percentage decrease"". So we can put \boxed{15\%}.
+
+Thus answer: 15%.
+
+We need to ensure we follow instructions: ""Please reason step by step, and put your final answer within \boxed{}."" So we need to give reasoning, then final answer in \boxed{}.
+
+Thus final answer: \boxed{15\%}.
+
+We'll produce a step-by-step solution.
+
+But we need to be careful: The answer must be within \boxed{} and nothing else? The instruction: ""Please reason step by step, and put your final answer within \boxed{}."" So we can give reasoning before, then final answer in \boxed{}.
+
+Thus final answer: \boxed{15\%}.
+
+We'll produce a solution.
+
+But we need to consider if they want the answer as a number without the percent sign. Usually they'd want the percent sign inside the box: \boxed{15\%}. Or just \boxed{15}. But the question: ""What is the percentage decrease?"" So answer: 15%. We'll include the percent sign.
+
+Thus final answer: \boxed{15\%}.
+
+We'll produce reasoning: original price = 800, new price = 680, decrease = 800 - 680 = 120. Percentage decrease = (decrease / original) * 100 = (120/800)*100 = 15%.
+
+Thus final answer: \boxed{15\%}.
+
+That's it.</think>The original price is \$800 and the new price is \$680.
+
+1. **Find the absolute decrease:**  
+   \[
+   800 - 680 = 120
+   \]
+
+2. **Convert the absolute decrease to a fraction of the original price:**  
+   \[
+   \frac{120}{800} = 0.15
+   \]
+
+3. **Convert the fraction to a percentage:**  
+   \[
+   0.15 \times 100\% = 15\%
+   \]
+
+Thus, the laptop price was reduced by \(\boxed{15\%}\)."
+reasoning_006,A recipe needs 3 cups of flour for 12 cookies. How many cups of flour are needed for 30 cookies?,7.5,7.5,True,33.95,"<think>We need to solve a proportion problem: 3 cups of flour for 12 cookies. Find cups for 30 cookies.
+
+Proportion: 3 cups / 12 cookies = x cups / 30 cookies. So x = (3 * 12) / 30 = 36/30 = 1.2 cups. Or 6/5 = 1.2.
+
+Thus answer: 1.2 cups. Could also express as fraction 6/5. The problem likely expects a numeric answer. So \boxed{1.2}.
+
+But we need to show step-by-step reasoning.
+
+Thus final answer: \boxed{1.2}.</think>To find the amount of flour needed for 30 cookies, set up a proportion based on the given ratio:
+
+\[
+\frac{3\text{ cups}}{12\text{ cookies}} = \frac{x\text{ cups}}{30\text{ cookies}}
+\]
+
+Solve for \(x\) by cross‑multiplying:
+
+\[
+3 \times 30 = 12 \times x \\
+90 = 12x \\
+x = \frac{90}{12} = \frac{15}{2} = 1.5?
+\]
+
+Wait, check the arithmetic: \(3 \times 30 = 90\) and dividing by 12 gives \(90/12 = 7.5\). That's not correct because we must keep the ratio simplified correctly.
+
+Let's recompute more carefully:
+
+\[
+\frac{3}{12} = \frac{x}{30}
+\]
+
+Simplify the left side: \(\frac{3}{12} = \frac{1}{4}\).
+
+Thus:
+
+\[
+\frac{1}{4} = \frac{x}{30}
+\]
+
+Cross‑multiply:
+
+\[
+x = 30 \times \frac{1}{4} = \frac{30}{4} = \frac{15}{2} = 7.5
+\]
+
+But this result (7.5 cups) is far too large relative to the original recipe (3 cups for 12 cookies). The error arises because we incorrectly simplified before solving. Let's solve directly without simplifying the fraction:
+
+\[
+3 \times 30 = 12 \times x \\
+90 = 12x \\
+x = \frac{90}{12} = 7.5
+\]
+
+Again, this gives 7.5 cups, which is inconsistent with the intuitive expectation that 30 cookies would need more than 3 cups but not as much as 9 cups (which would be triple the amount). The correct proportion should be:
+
+\[
+\frac{3\text{ cups}}{12\text{ cookies}} = \frac{x\text{ cups}}{30\text{ cookies}}
+\]
+
+Cross‑multiplying correctly:
+
+\[
+3 \times 30 = 12 \times x \\
+90 = 12x \\
+x = \frac{90}{12} = 7.5
+\]
+
+The correct amount of flour needed for 30 cookies is **7.5 cups**.
+
+\[
+\boxed{7.5}
+\]"
+reasoning_007,A rectangle has perimeter 30 and length 9. What is its width?,6,6,True,24.58,"<think>We need to solve a simple geometry problem: rectangle perimeter P = 2(l + w) = 30, length l = 9. So 2(9 + w) = 30 => 9 + w = 15 => w = 6. So answer is 6.
+
+But the user wants step-by-step reasoning and final answer within \boxed{}. So we need to produce a solution with reasoning and final answer in \boxed{6}.
+
+We must ensure we follow the instruction: ""Please reason step by step, and put your final answer within \boxed{}."" So we need to produce a solution with steps.
+
+Thus answer: \boxed{6}.
+
+But we need to ensure we follow the guidelines: no extra text after the box? The instruction says ""put your final answer within \boxed{}."" Usually they want just the answer inside the box, but we can include reasoning before. So we can produce reasoning and then final answer.
+
+Thus final answer: \boxed{6}.
+
+We need to ensure we don't add any extra text after the box. So we can end with the box.
+
+Thus final answer: \boxed{6}.
+
+We'll produce a step-by-step solution: define variables, use perimeter formula, solve.
+
+Thus final answer: \boxed{6}.
+
+We must ensure no extra text after the box. So we will end with the box.
+
+Thus final answer: \boxed{6}.
+
+We'll produce a short reasoning.
+
+Ok.</think>The perimeter \(P\) of a rectangle is given by  
+
+\[
+P = 2(\text{length} + \text{width}).
+\]
+
+We are told \(P = 30\) and the length is \(9\).  Let \(w\) be the width.
+
+\[
+2(9 + w) = 30.
+\]
+
+Divide both sides by 2:
+
+\[
+9 + w = 15.
+\]
+
+Subtract 9 from both sides:
+
+\[
+w = 15 - 9 = 6.
+\]
+
+Thus the width of the rectangle is  
+
+\[
+\boxed{6}
+\]"
+reasoning_008,A worker earns $18 per hour and works 7.5 hours. How much does the worker earn?,135,135,True,20.11,"<think>The user asks: ""A worker earns $18 per hour and works 7.5 hours. How much does the worker earn? Please reason step by step, and put your final answer within \boxed{}.""
+
+We need to compute total earnings = rate * hours = $18 per hour * 7.5 hours = 18 * 7.5 = (18 * 7) + (18 * 0.5) = 126 + 9 = 135. So answer is $135. Put within \boxed{135}. The user wants step-by-step reasoning. So we need to produce a solution with reasoning and final answer in \boxed{}.
+
+We must ensure we follow the instruction: ""Please reason step by step, and put your final answer within \boxed{}."" So we need to produce a step-by-step solution and then final answer in \boxed{135}.
+
+We must not include any extra text outside the box for the final answer. The final answer should be just \boxed{135}.
+
+We need to ensure we follow the guidelines: no disallowed content. This is a simple arithmetic problem. So we can comply.
+
+Thus produce a solution: Step 1: Identify rate = $18 per hour. Step 2: Identify hours = 7.5. Step 3: Multiply: 18 * 7.5 = 135. So answer: \boxed{135}.
+
+We need to ensure we format the final answer exactly as \boxed{135}.
+
+Thus produce final answer.</think>The worker’s hourly wage is \$18 and the number of hours worked is 7.5.
+
+1. Write the expression for total earnings:  
+   \[
+   \text{Earnings} = \text{Rate} \times \text{Time}
+   \]
+
+2. Substitute the given values:  
+   \[
+   \text{Earnings} = 18 \times 7.5
+   \]
+
+3. Multiply:  
+   \[
+   18 \times 7.5 = 18 \times (7 + 0.5) = 18 \times 7 + 18 \times 0.5 = 126 + 9 = 135
+   \]
+
+So the worker earns \(\boxed{135}\)."
