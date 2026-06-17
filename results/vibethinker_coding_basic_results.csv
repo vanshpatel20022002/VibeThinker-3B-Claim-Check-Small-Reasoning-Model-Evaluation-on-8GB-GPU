@@ -1,5 +1,5 @@
 model_id,id,function_name,passed,latency_sec,error,test_results,generated_code,raw_response
-WeiboAI/VibeThinker-3B,code_001,add_numbers,True,12.54,,"[{""call"": ""add_numbers(2, 3)"", ""actual"": 5, ""expected"": 5, ""passed"": true}, {""call"": ""add_numbers(-1, 5)"", ""actual"": 4, ""expected"": 4, ""passed"": true}, {""call"": ""add_numbers(0, 0)"", ""actual"": 0, ""expected"": 0, ""passed"": true}]","def add_numbers(a, b):
+WeiboAI/VibeThinker-3B,code_001,add_numbers,True,12.94,,"[{""call"": ""add_numbers(2, 3)"", ""actual"": 5, ""expected"": 5, ""passed"": true}, {""call"": ""add_numbers(-1, 5)"", ""actual"": 4, ""expected"": 4, ""passed"": true}, {""call"": ""add_numbers(0, 0)"", ""actual"": 0, ""expected"": 0, ""passed"": true}]","def add_numbers(a, b):
     return a + b","<think>The user asks: ""You are solving a coding task. Task: Write a Python function named add_numbers that takes two numbers and returns their sum. Requirements: - Write Python 3 code. - Define a function named add_numbers. - Return only the code. - Do not include explanations.""
 
 Thus we need to output only the code, no extra text. The code should define a function add_numbers that takes two numbers (presumably parameters) and returns their sum.
@@ -25,56 +25,7 @@ def add_numbers(a, b):
 
 Thus final answer: plain code.</think>def add_numbers(a, b):
     return a + b"
-WeiboAI/VibeThinker-3B,code_002,is_palindrome,False,20.82,"File ""C:\Users\rajph\AppData\Local\Temp\tmpre54fo8z.py"", line 16
-    That's fine.
-        ^
-SyntaxError: unterminated string literal (detected at line 16)",[],"<think>The user asks: ""You are solving a coding task. Task: Write a Python function named is_palindrome that takes a string and returns True if it is a palindrome, ignoring case and spaces. Requirements: - Write Python 3 code. - Define a function named is_palindrome. - Return only the code. - Do not include explanations.""
-
-Thus we need to output only the code, presumably a Python function definition that does this. The function should ignore case and spaces. So something like:
-
-def is_palindrome(s):
-    # remove spaces and convert to same case, then check equality with reversed.
-    return s.replace(' ', '').lower() == s.replace(' ', '').[::-1]
-
-But careful: using replace twice might be inefficient; we can do something like:
-
-def is_palindrome(s):
-    s = s.replace(' ', '').lower()
-    return s == s[::-1]
-
-That's fine.
-
-We need to output only the code. Should we include any import statements? No need. Should we include docstring? Possibly not needed. The user says ""Return only the code."" So we should output just the code snippet. Possibly the code should be a complete snippet, maybe with the function definition only. The user wants a function named is_palindrome that takes a string and returns True if it is a palindrome ignoring case and spaces.
-
-Thus the answer should be something like:
-
-def is_palindrome(s):
-    s = s.replace(' ', '').lower()
-    return s == s[::-1]
-
-We need to ensure it's Python 3. That's fine.
-
-We must not include any explanation. So just the code.
-
-Thus final answer: the code snippet.
-
-Potential nuance: The function should ignore spaces, but what about other whitespace like tabs? The requirement says ignoring case and spaces. So only spaces. It's fine.
-
-Thus answer: a code block with the function.
-
-We need to ensure we output only the code, no extra text. So just:
-
-def is_palindrome(s):
-    s = s.replace(' ', '').lower()
-    return s == s[::-1]
-
-We could also optionally include a main test, but they didn't ask for that. They just want the function.
-
-Thus final answer: the code.
-
-We must ensure no extra text. So just the code.
-
-Thus final.</think>def is_palindrome(s):
+WeiboAI/VibeThinker-3B,code_002,is_palindrome,True,20.39,,"[{""call"": ""is_palindrome('Race car')"", ""actual"": true, ""expected"": true, ""passed"": true}, {""call"": ""is_palindrome('hello')"", ""actual"": false, ""expected"": false, ""passed"": true}, {""call"": ""is_palindrome('A man a plan a canal Panama')"", ""actual"": true, ""expected"": true, ""passed"": true}]","def is_palindrome(s):
     s = s.replace(' ', '').lower()
     return s == s[::-1]","<think>The user asks: ""You are solving a coding task. Task: Write a Python function named is_palindrome that takes a string and returns True if it is a palindrome, ignoring case and spaces. Requirements: - Write Python 3 code. - Define a function named is_palindrome. - Return only the code. - Do not include explanations.""
 
@@ -125,44 +76,7 @@ We must ensure no extra text. So just the code.
 Thus final.</think>def is_palindrome(s):
     s = s.replace(' ', '').lower()
     return s == s[::-1]"
-WeiboAI/VibeThinker-3B,code_003,count_vowels,False,20.59,"File ""C:\Users\rajph\AppData\Local\Temp\tmpvky4dzz0.py"", line 4
-    Thus we need to output only the code, no extra text. The code should define a function count_vowels(s: str) -> int (or just taking a string) that returns the number of vowels (presumably a, e, i, o, u, maybe both cases). We need to count vowels in the input string. Should we count both uppercase and lowercase? Usually yes. So we can either convert to lower case or check both. We'll implement something like:
-                                                                                                                                                                                                                                                                                                                                                                                                 ^
-SyntaxError: unterminated string literal (detected at line 4)",[],"<think>The user asks: ""You are solving a coding task. Task: Write a Python function named count_vowels that takes a string and returns the number of vowels in it. Requirements: - Write Python 3 code. - Define a function named count_vowels. - Return only the code. - Do not include explanations.""
-
-Thus we need to output only the code, no extra text. The code should define a function count_vowels(s: str) -> int (or just taking a string) that returns the number of vowels (presumably a, e, i, o, u, maybe both cases). We need to count vowels in the input string. Should we count both uppercase and lowercase? Usually yes. So we can either convert to lower case or check both. We'll implement something like:
-
-def count_vowels(text):
-    vowels = set('aeiouAEIOU')
-    return sum(1 for ch in text if ch in vowels)
-
-That's simple. The user wants only the code. So we output the code block with the function definition. Possibly include a main test? No, just define the function. The code should be Python 3. So we can write:
-
-def count_vowels(s):
-    vowels = 'aeiouAEIOU'
-    count = 0
-    for char in s:
-        if char in vowels:
-            count += 1
-    return count
-
-Or a one-liner:
-
-def count_vowels(s):
-    return sum(1 for c in s if c in 'aeiouAEIOU')
-
-Better to be concise. The user says ""Return only the code."" So we must output only the code, no extra explanation. Possibly no triple backticks? The instruction says ""Write Python 3 code."" Usually we can output code without markdown fences. The user says ""Return only the code."" So we should output raw code, not any extra text. So just the function definition.
-
-Thus answer:
-
-def count_vowels(s):
-    return sum(1 for c in s if c in 'aeiouAEIOU')
-
-That's it. Ensure it's valid Python 3. That's fine.
-
-We need to be careful not to include any extra whitespace before or after? Probably fine.
-
-Thus final answer: just the code.</think>def count_vowels(s):
+WeiboAI/VibeThinker-3B,code_003,count_vowels,True,20.32,,"[{""call"": ""count_vowels('hello')"", ""actual"": 2, ""expected"": 2, ""passed"": true}, {""call"": ""count_vowels('Python')"", ""actual"": 1, ""expected"": 1, ""passed"": true}, {""call"": ""count_vowels('AEIOU')"", ""actual"": 5, ""expected"": 5, ""passed"": true}]","def count_vowels(s):
     return sum(1 for c in s if c in 'aeiouAEIOU')","<think>The user asks: ""You are solving a coding task. Task: Write a Python function named count_vowels that takes a string and returns the number of vowels in it. Requirements: - Write Python 3 code. - Define a function named count_vowels. - Return only the code. - Do not include explanations.""
 
 Thus we need to output only the code, no extra text. The code should define a function count_vowels(s: str) -> int (or just taking a string) that returns the number of vowels (presumably a, e, i, o, u, maybe both cases). We need to count vowels in the input string. Should we count both uppercase and lowercase? Usually yes. So we can either convert to lower case or check both. We'll implement something like:
@@ -199,7 +113,7 @@ We need to be careful not to include any extra whitespace before or after? Proba
 
 Thus final answer: just the code.</think>def count_vowels(s):
     return sum(1 for c in s if c in 'aeiouAEIOU')"
-WeiboAI/VibeThinker-3B,code_004,factorial,True,21.78,,"[{""call"": ""factorial(0)"", ""actual"": 1, ""expected"": 1, ""passed"": true}, {""call"": ""factorial(5)"", ""actual"": 120, ""expected"": 120, ""passed"": true}, {""call"": ""factorial(7)"", ""actual"": 5040, ""expected"": 5040, ""passed"": true}]","def factorial(n):
+WeiboAI/VibeThinker-3B,code_004,factorial,True,21.53,,"[{""call"": ""factorial(0)"", ""actual"": 1, ""expected"": 1, ""passed"": true}, {""call"": ""factorial(5)"", ""actual"": 120, ""expected"": 120, ""passed"": true}, {""call"": ""factorial(7)"", ""actual"": 5040, ""expected"": 5040, ""passed"": true}]","def factorial(n):
     """"""Return the factorial of a non‑negative integer n.""""""
     if n < 0:
         raise ValueError(""n must be non-negative"")
@@ -256,53 +170,7 @@ def factorial(n):
         result *= i
     return result
 ```"
-WeiboAI/VibeThinker-3B,code_005,remove_duplicates,False,22.09,"File ""C:\Users\rajph\AppData\Local\Temp\tmprm5z_bv7.py"", line 43
-    That's it. Ensure no extra whitespace before or after? Probably fine.
-        ^
-SyntaxError: unterminated string literal (detected at line 43)",[],"<think>The user asks: ""You are solving a coding task. Task: Write a Python function named remove_duplicates that takes a list and returns a new list with duplicates removed while preserving the original order. Requirements: - Write Python 3 code. - Define a function named remove_duplicates. - Return only the code. - Do not include explanations.""
-
-Thus we need to output only the code, no extra explanation. The code should define a function remove_duplicates that takes a list (presumably any iterable) and returns a new list with duplicates removed while preserving order.
-
-We need to produce a Python code snippet that meets the spec. Should be a function definition. Possibly something like:
-
-def remove_duplicates(lst):
-    seen = set()
-    result = []
-    for item in lst:
-        if item not in seen:
-            seen.add(item)
-            result.append(item)
-    return result
-
-Alternatively, we could use dict.fromkeys (Python 3.7+ preserves insertion order) so return list(dict.fromkeys(lst)). But maybe they want explicit approach. Both are fine.
-
-We need to output only the code. So we should output something like:
-
-def remove_duplicates(lst):
-    seen = set()
-    result = []
-    for item in lst:
-        if item not in seen:
-            seen.add(item)
-            result.append(item)
-    return result
-
-Make sure it's Python 3 compatible. That's fine.
-
-We must not include any extra text. So just the code block? The user says ""Return only the code."" So we should output the code without any extra text. Possibly no triple backticks? The instruction says ""Write Python 3 code."" Usually we can output code with proper formatting. But ""Return only the code."" So we should output just the code, maybe as plain text. Usually we can wrap in triple backticks for readability but that might be considered extra characters? The user says ""Return only the code."" Usually they want just the code snippet, but it's ambiguous whether code fences count as extra. I'd lean to output plain code without any explanation or markdown formatting. So just:
-
-def remove_duplicates(lst):
-    seen = set()
-    result = []
-    for item in lst:
-        if item not in seen:
-            seen.add(item)
-            result.append(item)
-    return result
-
-That's it. Ensure no extra whitespace before or after? Probably fine.
-
-Thus final answer: just that code.</think>def remove_duplicates(lst):
+WeiboAI/VibeThinker-3B,code_005,remove_duplicates,True,22.66,,"[{""call"": ""remove_duplicates([1, 2, 2, 3, 1])"", ""actual"": [1, 2, 3], ""expected"": [1, 2, 3], ""passed"": true}, {""call"": ""remove_duplicates(['a', 'b', 'a'])"", ""actual"": [""a"", ""b""], ""expected"": [""a"", ""b""], ""passed"": true}, {""call"": ""remove_duplicates([])"", ""actual"": [], ""expected"": [], ""passed"": true}]","def remove_duplicates(lst):
     seen = set()
     result = []
     for item in lst:
