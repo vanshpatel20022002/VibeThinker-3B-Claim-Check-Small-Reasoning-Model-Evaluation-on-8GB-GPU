@@ -8,7 +8,7 @@ import pandas as pd
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-MODEL_ID = "WeiboAI/VibeThinker-3B"
+DEFAULT_MODEL_ID = "WeiboAI/VibeThinker-3B"
 
 
 def extract_boxed_answer(text: str) -> str:
@@ -58,7 +58,12 @@ def build_prompt(question: str) -> str:
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Run a VibeThinker-3B math evaluation.")
+    parser = argparse.ArgumentParser(description="Run a small-model math evaluation.")
+    parser.add_argument(
+        "--model-id",
+        default=DEFAULT_MODEL_ID,
+        help="Hugging Face model ID to evaluate.",
+    )
     parser.add_argument(
         "--eval-file",
         default="evals/math_basic.jsonl",
@@ -84,12 +89,13 @@ def main():
     results_path = Path(args.output_file)
     results_path.parent.mkdir(parents=True, exist_ok=True)
 
+    print(f"Model: {args.model_id}")
     print("Loading tokenizer...")
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+    tokenizer = AutoTokenizer.from_pretrained(args.model_id)
 
     print("Loading model...")
     model = AutoModelForCausalLM.from_pretrained(
-        MODEL_ID,
+        args.model_id,
         torch_dtype=torch.float16,
         device_map="auto",
         low_cpu_mem_usage=True,
@@ -133,6 +139,7 @@ def main():
         )
 
         rows.append({
+            "model_id": args.model_id,
             "id": ex["id"],
             "question": ex["question"],
             "expected": ex["answer"],
