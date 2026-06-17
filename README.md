@@ -10,6 +10,7 @@ The goal is not to fully reproduce the paper. Instead, this repo checks a few cl
 - Can it solve simple verifiable math problems?
 - Can we extract final boxed answers automatically?
 - Can we track accuracy and latency in a reproducible way?
+- How does it compare with a similar 3B baseline model?
 
 ## Current Status
 
@@ -18,18 +19,22 @@ The goal is not to fully reproduce the paper. Instead, this repo checks a few cl
 - Basic math evaluation harness added
 - Slightly harder math reasoning eval added
 - Normalized answer scoring added for simple formatting differences like `15` vs `15\%`
+- Baseline comparison added with `Qwen/Qwen2.5-Coder-3B-Instruct`
 - Results saved under `results/`
 
 ## Initial Results
 
-| Eval set | Questions | Correct | Accuracy | Latency range |
-|---|---:|---:|---:|---:|
-| Basic math sanity check | 5 | 5 | 100% | 10.72s - 19.71s |
-| Math reasoning set | 8 | 8 | 100% | 9.30s - 148.78s |
+| Eval set | Model | Questions | Correct | Accuracy | Latency range |
+|---|---|---:|---:|---:|---:|
+| Basic math sanity check | WeiboAI/VibeThinker-3B | 5 | 5 | 100% | 10.72s - 19.71s |
+| Math reasoning set | WeiboAI/VibeThinker-3B | 8 | 8 | 100% | 9.30s - 148.78s |
+| Math reasoning set | Qwen/Qwen2.5-Coder-3B-Instruct | 8 | 7 | 87.5% | 6.78s - 14.89s |
 
-These results only show that the model can run locally and solve small sanity-check math sets. They should not be interpreted as confirmation of the full benchmark claims from the paper.
+These results only show that the models were tested on small sanity-check math sets. They should not be interpreted as confirmation of the full benchmark claims from the paper.
 
 One useful observation from the reasoning set is that some answers need light normalization before scoring. For example, `15` and `15\%` represent the same percentage answer, so the evaluator normalizes simple numeric formatting before comparison.
+
+In this small reasoning set, VibeThinker-3B solved all 8 examples, while the Qwen2.5-Coder-3B-Instruct baseline missed one proportional reasoning question by predicting `30` instead of `10`.
 
 ## Setup
 
@@ -73,7 +78,13 @@ python scripts\run_math_eval.py
 ## Run Math Reasoning Evaluation
 
 ```powershell
-python scripts\run_math_eval.py --eval-file evals\math_reasoning.jsonl --output-file results\math_reasoning_results.csv
+python scripts\run_math_eval.py --model-id WeiboAI/VibeThinker-3B --eval-file evals\math_reasoning.jsonl --output-file results\math_reasoning_results.csv
+```
+
+## Run Baseline Evaluation
+
+```powershell
+python scripts\run_math_eval.py --model-id Qwen/Qwen2.5-Coder-3B-Instruct --eval-file evals\math_reasoning.jsonl --output-file results\qwen25_coder_3b_instruct_math_reasoning_results.csv
 ```
 
 ## Project Structure
@@ -86,6 +97,7 @@ evals/
 results/
   math_basic_results.csv
   math_reasoning_results.csv
+  qwen25_coder_3b_instruct_math_reasoning_results.csv
 
 scripts/
   check_gpu.py
