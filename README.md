@@ -4,6 +4,8 @@ This project is an independent, small-scale evaluation of **VibeThinker-3B**, a 
 
 The goal is not to fully reproduce the paper. Instead, this repo checks a few claims in a practical local setup using an **RTX 4070 Laptop GPU with 8GB VRAM**.
 
+For the detailed methodology, observations, limitations, and next steps, see [`docs/evaluation_report.md`](docs/evaluation_report.md).
+
 ## What This Project Tests
 
 - Can VibeThinker-3B run locally on an 8GB GPU?
@@ -109,6 +111,9 @@ python scripts\run_coding_eval.py --model-id Qwen/Qwen2.5-Coder-3B-Instruct --ev
 ## Project Structure
 
 ```text
+docs/
+  evaluation_report.md
+
 evals/
   coding_basic.jsonl
   math_basic.jsonl
