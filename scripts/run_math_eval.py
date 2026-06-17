@@ -21,6 +21,29 @@ def extract_boxed_answer(text: str) -> str:
     return numbers[-1].strip() if numbers else ""
 
 
+def normalize_answer(answer: str) -> str:
+    """Normalize simple numeric answers for fair comparison.
+
+    This removes formatting differences like dollar signs, commas,
+    whitespace, and LaTeX percent signs. It does not attempt symbolic math.
+    """
+    text = str(answer).strip().lower()
+    text = text.replace("\\%", "")
+    text = text.replace("%", "")
+    text = text.replace("$", "")
+    text = text.replace("\\$", "")
+    text = text.replace(",", "")
+    text = re.sub(r"\s+", "", text)
+
+    try:
+        value = float(text)
+        if value.is_integer():
+            return str(int(value))
+        return str(value)
+    except ValueError:
+        return text
+
+
 def load_examples(path: Path):
     with path.open("r", encoding="utf-8") as f:
         for line in f:
@@ -100,15 +123,22 @@ def main():
         response = tokenizer.decode(new_tokens, skip_special_tokens=True)
 
         prediction = extract_boxed_answer(response)
-        correct = prediction == ex["answer"]
+        expected_normalized = normalize_answer(ex["answer"])
+        prediction_normalized = normalize_answer(prediction)
+        correct = prediction_normalized == expected_normalized
 
-        print(f"{ex['id']}: predicted={prediction}, expected={ex['answer']}, correct={correct}")
+        print(
+            f"{ex['id']}: predicted={prediction} "
+            f"expected={ex['answer']} correct={correct}"
+        )
 
         rows.append({
             "id": ex["id"],
             "question": ex["question"],
             "expected": ex["answer"],
             "prediction": prediction,
+            "expected_normalized": expected_normalized,
+            "prediction_normalized": prediction_normalized,
             "correct": correct,
             "latency_sec": latency_sec,
             "response": response,
