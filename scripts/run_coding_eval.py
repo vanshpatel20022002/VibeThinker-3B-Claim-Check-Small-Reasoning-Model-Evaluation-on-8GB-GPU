@@ -35,13 +35,23 @@ Requirements:
 """.strip()
 
 
+def strip_thinking_traces(text: str) -> str:
+    """Remove reasoning traces before extracting executable code."""
+    return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL | re.IGNORECASE).strip()
+
+
 def extract_code(text: str) -> str:
-    code_blocks = re.findall(r"```(?:python)?\s*(.*?)```", text, flags=re.DOTALL | re.IGNORECASE)
+    cleaned_text = strip_thinking_traces(text)
+
+    code_blocks = re.findall(
+        r"```(?:python)?\s*(.*?)```",
+        cleaned_text,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
     if code_blocks:
         return code_blocks[-1].strip()
 
-    # If no Markdown code block exists, remove common leading explanation text.
-    return text.strip()
+    return cleaned_text.strip()
 
 
 def run_code_tests(code: str, tests: list[dict], timeout_sec: int = 5):
