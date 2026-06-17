@@ -1,3 +1,4 @@
+import argparse
 import json
 import re
 import time
@@ -8,8 +9,6 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 MODEL_ID = "WeiboAI/VibeThinker-3B"
-EVAL_PATH = Path("evals/math_basic.jsonl")
-RESULTS_PATH = Path("results/math_basic_results.csv")
 
 
 def extract_boxed_answer(text: str) -> str:
@@ -35,8 +34,32 @@ def build_prompt(question: str) -> str:
     )
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Run a VibeThinker-3B math evaluation.")
+    parser.add_argument(
+        "--eval-file",
+        default="evals/math_basic.jsonl",
+        help="Path to the JSONL evaluation file.",
+    )
+    parser.add_argument(
+        "--output-file",
+        default="results/math_basic_results.csv",
+        help="Path where CSV results will be saved.",
+    )
+    parser.add_argument(
+        "--max-new-tokens",
+        type=int,
+        default=1024,
+        help="Maximum number of tokens generated per question.",
+    )
+    return parser.parse_args()
+
+
 def main():
-    RESULTS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    args = parse_args()
+    eval_path = Path(args.eval_file)
+    results_path = Path(args.output_file)
+    results_path.parent.mkdir(parents=True, exist_ok=True)
 
     print("Loading tokenizer...")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
@@ -51,7 +74,7 @@ def main():
 
     rows = []
 
-    for ex in load_examples(EVAL_PATH):
+    for ex in load_examples(eval_path):
         messages = [{"role": "user", "content": build_prompt(ex["question"])}]
 
         prompt = tokenizer.apply_chat_template(
@@ -67,7 +90,7 @@ def main():
         with torch.no_grad():
             output = model.generate(
                 **inputs,
-                max_new_tokens=1024,
+                max_new_tokens=args.max_new_tokens,
                 do_sample=False,
                 pad_token_id=tokenizer.eos_token_id,
             )
@@ -92,11 +115,11 @@ def main():
         })
 
     df = pd.DataFrame(rows)
-    df.to_csv(RESULTS_PATH, index=False)
+    df.to_csv(results_path, index=False)
 
     accuracy = df["correct"].mean()
     print(f"\nAccuracy: {accuracy:.2%}")
-    print(f"Saved results to {RESULTS_PATH}")
+    print(f"Saved results to {results_path}")
 
 
 if __name__ == "__main__":
