@@ -16,20 +16,20 @@ The goal is not to fully reproduce the paper. Instead, this repo checks a few cl
 - GPU setup verified
 - VibeThinker-3B smoke test completed
 - Basic math evaluation harness added
-- Results saved to `results/math_basic_results.csv`
+- Slightly harder math reasoning eval added
+- Normalized answer scoring added for simple formatting differences like `15` vs `15\%`
+- Results saved under `results/`
 
 ## Initial Results
 
-Basic math evaluation on 5 simple verifiable reasoning questions:
+| Eval set | Questions | Correct | Accuracy | Latency range |
+|---|---:|---:|---:|---:|
+| Basic math sanity check | 5 | 5 | 100% | 10.72s - 19.71s |
+| Math reasoning set | 8 | 8 | 100% | 9.30s - 148.78s |
 
-| Metric | Result |
-|---|---:|
-| Questions tested | 5 |
-| Correct answers | 5 |
-| Accuracy | 100% |
-| Latency range | 10.72s - 19.71s per question |
+These results only show that the model can run locally and solve small sanity-check math sets. They should not be interpreted as confirmation of the full benchmark claims from the paper.
 
-These results only show that the model can run locally and solve a tiny sanity-check set. They should not be interpreted as confirmation of the full benchmark claims from the paper.
+One useful observation from the reasoning set is that some answers need light normalization before scoring. For example, `15` and `15\%` represent the same percentage answer, so the evaluator normalizes simple numeric formatting before comparison.
 
 ## Setup
 
@@ -70,14 +70,22 @@ python scripts\smoke_test_model.py
 python scripts\run_math_eval.py
 ```
 
+## Run Math Reasoning Evaluation
+
+```powershell
+python scripts\run_math_eval.py --eval-file evals\math_reasoning.jsonl --output-file results\math_reasoning_results.csv
+```
+
 ## Project Structure
 
 ```text
 evals/
   math_basic.jsonl
+  math_reasoning.jsonl
 
 results/
   math_basic_results.csv
+  math_reasoning_results.csv
 
 scripts/
   check_gpu.py
