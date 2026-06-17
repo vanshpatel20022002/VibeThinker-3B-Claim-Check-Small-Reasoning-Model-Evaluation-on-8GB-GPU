@@ -1,0 +1,48 @@
+model_id,id,function_name,passed,latency_sec,error,test_results,generated_code,raw_response
+Qwen/Qwen2.5-Coder-3B-Instruct,code_001,add_numbers,True,1.61,,"[{""call"": ""add_numbers(2, 3)"", ""actual"": 5, ""expected"": 5, ""passed"": true}, {""call"": ""add_numbers(-1, 5)"", ""actual"": 4, ""expected"": 4, ""passed"": true}, {""call"": ""add_numbers(0, 0)"", ""actual"": 0, ""expected"": 0, ""passed"": true}]","def add_numbers(a, b):
+    return a + b","```python
+def add_numbers(a, b):
+    return a + b
+```"
+Qwen/Qwen2.5-Coder-3B-Instruct,code_002,is_palindrome,True,2.36,,"[{""call"": ""is_palindrome('Race car')"", ""actual"": true, ""expected"": true, ""passed"": true}, {""call"": ""is_palindrome('hello')"", ""actual"": false, ""expected"": false, ""passed"": true}, {""call"": ""is_palindrome('A man a plan a canal Panama')"", ""actual"": true, ""expected"": true, ""passed"": true}]","def is_palindrome(s):
+    # Remove spaces and convert to lowercase
+    cleaned_s = s.replace("" "", """").lower()
+    # Check if the cleaned string is equal to its reverse
+    return cleaned_s == cleaned_s[::-1]","```python
+def is_palindrome(s):
+    # Remove spaces and convert to lowercase
+    cleaned_s = s.replace("" "", """").lower()
+    # Check if the cleaned string is equal to its reverse
+    return cleaned_s == cleaned_s[::-1]
+```"
+Qwen/Qwen2.5-Coder-3B-Instruct,code_003,count_vowels,True,1.47,,"[{""call"": ""count_vowels('hello')"", ""actual"": 2, ""expected"": 2, ""passed"": true}, {""call"": ""count_vowels('Python')"", ""actual"": 1, ""expected"": 1, ""passed"": true}, {""call"": ""count_vowels('AEIOU')"", ""actual"": 5, ""expected"": 5, ""passed"": true}]","def count_vowels(s):
+    vowels = ""aeiouAEIOU""
+    return sum(1 for char in s if char in vowels)","```python
+def count_vowels(s):
+    vowels = ""aeiouAEIOU""
+    return sum(1 for char in s if char in vowels)
+```"
+Qwen/Qwen2.5-Coder-3B-Instruct,code_004,factorial,True,2.39,,"[{""call"": ""factorial(0)"", ""actual"": 1, ""expected"": 1, ""passed"": true}, {""call"": ""factorial(5)"", ""actual"": 120, ""expected"": 120, ""passed"": true}, {""call"": ""factorial(7)"", ""actual"": 5040, ""expected"": 5040, ""passed"": true}]","def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        result = 1
+        for i in range(2, n + 1):
+            result *= i
+        return result","```python
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        result = 1
+        for i in range(2, n + 1):
+            result *= i
+        return result
+```"
+Qwen/Qwen2.5-Coder-3B-Instruct,code_005,remove_duplicates,True,1.44,,"[{""call"": ""remove_duplicates([1, 2, 2, 3, 1])"", ""actual"": [1, 2, 3], ""expected"": [1, 2, 3], ""passed"": true}, {""call"": ""remove_duplicates(['a', 'b', 'a'])"", ""actual"": [""a"", ""b""], ""expected"": [""a"", ""b""], ""passed"": true}, {""call"": ""remove_duplicates([])"", ""actual"": [], ""expected"": [], ""passed"": true}]","def remove_duplicates(lst):
+    seen = set()
+    return [x for x in lst if not (x in seen or seen.add(x))]","```python
+def remove_duplicates(lst):
+    seen = set()
+    return [x for x in lst if not (x in seen or seen.add(x))]
+```"
