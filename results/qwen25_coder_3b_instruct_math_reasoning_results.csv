@@ -1,0 +1,186 @@
+model_id,id,question,expected,prediction,expected_normalized,prediction_normalized,correct,latency_sec,response
+Qwen/Qwen2.5-Coder-3B-Instruct,reasoning_001,"A store gives a 20 percent discount on a $50 jacket. After the discount, there is 13 percent tax. What is the final price?",45.20,45.20,45.2,45.2,True,14.89,"To determine the final price of the jacket after applying the discount and then adding the tax, we will follow these steps:
+
+1. Calculate the discount amount.
+2. Subtract the discount amount from the original price to get the discounted price.
+3. Calculate the tax amount on the discounted price.
+4. Add the tax amount to the discounted price to get the final price.
+
+Let's start with the first step:
+
+1. Calculate the discount amount:
+   The original price of the jacket is $50, and the discount is 20%. Therefore, the discount amount is:
+   \[
+   50 \times \frac{20}{100} = 50 \times 0.20 = 10
+   \]
+
+2. Subtract the discount amount from the original price to get the discounted price:
+   \[
+   50 - 10 = 40
+   \]
+   So, the discounted price is $40.
+
+3. Calculate the tax amount on the discounted price:
+   The tax rate is 13%. Therefore, the tax amount is:
+   \[
+   40 \times \frac{13}{100} = 40 \times 0.13 = 5.20
+   \]
+
+4. Add the tax amount to the discounted price to get the final price:
+   \[
+   40 + 5.20 = 45.20
+   \]
+   So, the final price is $45.20.
+
+Therefore, the final price of the jacket is \boxed{45.20}."
+Qwen/Qwen2.5-Coder-3B-Instruct,reasoning_002,Maya has twice as many marbles as Leo. Together they have 36 marbles. How many marbles does Maya have?,24,24,24,24,True,8.91,"Let's denote the number of marbles Leo has as \( L \). According to the problem, Maya has twice as many marbles as Leo, so we can express the number of marbles Maya has as \( 2L \).
+
+The total number of marbles they have together is given as 36. Therefore, we can write the following equation:
+\[ L + 2L = 36 \]
+
+Combining like terms on the left side of the equation, we get:
+\[ 3L = 36 \]
+
+To find the value of \( L \), we divide both sides of the equation by 3:
+\[ L = \frac{36}{3} = 12 \]
+
+So, Leo has 12 marbles. Since Maya has twice as many marbles as Leo, we calculate the number of marbles Maya has as follows:
+\[ 2L = 2 \times 12 = 24 \]
+
+Therefore, the number of marbles Maya has is \(\boxed{24}\)."
+Qwen/Qwen2.5-Coder-3B-Instruct,reasoning_003,"A car uses 6 liters of fuel to travel 90 km. At the same rate, how many liters are needed to travel 150 km?",10,30,10,30,False,14.21,"To determine how many liters of fuel are needed to travel 150 km at the same rate as the car travels 90 km using 6 liters of fuel, we can follow these steps:
+
+1. **Calculate the fuel consumption rate:**
+   The car uses 6 liters of fuel to travel 90 km. Therefore, the fuel consumption rate is:
+   \[
+   \text{Fuel consumption rate} = \frac{6 \text{ liters}}{90 \text{ km}}
+   \]
+
+2. **Simplify the fuel consumption rate:**
+   Simplify the fraction by dividing both the numerator and the denominator by their greatest common divisor, which is 30:
+   \[
+   \text{Fuel consumption rate} = \frac{6 \div 30}{90 \div 30} = \frac{0.2}{3} \text{ liters per km}
+   \]
+
+3. **Determine the amount of fuel needed for 150 km:**
+   To find out how many liters of fuel are needed to travel 150 km, multiply the fuel consumption rate by 150 km:
+   \[
+   \text{Fuel needed} = 0.2 \text{ liters per km} \times 150 \text{ km}
+   \]
+
+4. **Perform the multiplication:**
+   \[
+   \text{Fuel needed} = 0.2 \times 150 = 30 \text{ liters}
+   \]
+
+Therefore, the number of liters needed to travel 150 km is \boxed{30}."
+Qwen/Qwen2.5-Coder-3B-Instruct,reasoning_004,The average of three numbers is 18. Two of the numbers are 12 and 21. What is the third number?,21,21,21,21,True,10.54,"To find the third number, we can use the formula for the average of three numbers. The average of three numbers \(a\), \(b\), and \(c\) is given by:
+
+\[
+\text{Average} = \frac{a + b + c}{3}
+\]
+
+We know that the average of the three numbers is 18, and two of the numbers are 12 and 21. Let's denote the third number as \(x\). Substituting the known values into the formula, we get:
+
+\[
+18 = \frac{12 + 21 + x}{3}
+\]
+
+To eliminate the fraction, we multiply both sides of the equation by 3:
+
+\[
+18 \times 3 = 12 + 21 + x
+\]
+
+This simplifies to:
+
+\[
+54 = 33 + x
+\]
+
+Next, we isolate \(x\) by subtracting 33 from both sides of the equation:
+
+\[
+54 - 33 = x
+\]
+
+This simplifies to:
+
+\[
+x = 21
+\]
+
+Therefore, the third number is \(\boxed{21}\)."
+Qwen/Qwen2.5-Coder-3B-Instruct,reasoning_005,A laptop price is reduced from $800 to $680. What is the percentage decrease?,15,15,15,15,True,9.09,"To find the percentage decrease in the laptop price, we can follow these steps:
+
+1. Determine the amount of decrease in the price.
+2. Divide the amount of decrease by the original price.
+3. Multiply the result by 100 to convert it to a percentage.
+
+Let's go through each step in detail:
+
+1. The original price of the laptop is $800, and the new price is $680. The amount of decrease is:
+   \[
+   800 - 680 = 120
+   \]
+
+2. Next, we divide the amount of decrease by the original price:
+   \[
+   \frac{120}{800} = 0.15
+   \]
+
+3. Finally, we multiply the result by 100 to convert it to a percentage:
+   \[
+   0.15 \times 100 = 15
+   \]
+
+Therefore, the percentage decrease is \(\boxed{15}\)."
+Qwen/Qwen2.5-Coder-3B-Instruct,reasoning_006,A recipe needs 3 cups of flour for 12 cookies. How many cups of flour are needed for 30 cookies?,7.5,7.5,7.5,7.5,True,12.02,"To determine how many cups of flour are needed for 30 cookies, we can follow these steps:
+
+1. **Find the amount of flour needed for one cookie:**
+   The recipe states that 3 cups of flour are needed for 12 cookies. To find out how much flour is needed for one cookie, we divide the total amount of flour by the number of cookies:
+   \[
+   \text{Flour per cookie} = \frac{3 \text{ cups}}{12 \text{ cookies}} = \frac{1}{4} \text{ cup per cookie}
+   \]
+
+2. **Calculate the amount of flour needed for 30 cookies:**
+   Now that we know each cookie requires \(\frac{1}{4}\) cup of flour, we can find out how much flour is needed for 30 cookies by multiplying the amount of flour per cookie by the number of cookies:
+   \[
+   \text{Flour for 30 cookies} = 30 \text{ cookies} \times \frac{1}{4} \text{ cup per cookie} = \frac{30}{4} \text{ cups} = 7.5 \text{ cups}
+   \]
+
+Therefore, the number of cups of flour needed for 30 cookies is \(\boxed{7.5}\)."
+Qwen/Qwen2.5-Coder-3B-Instruct,reasoning_007,A rectangle has perimeter 30 and length 9. What is its width?,6,6,6,6,True,8.5,"To find the width of the rectangle, we start with the formula for the perimeter of a rectangle. The perimeter \( P \) of a rectangle is given by:
+
+\[ P = 2 \times (\text{length} + \text{width}) \]
+
+We are given that the perimeter \( P \) is 30 and the length is 9. Let's denote the width by \( w \). Substituting the given values into the formula, we get:
+
+\[ 30 = 2 \times (9 + w) \]
+
+Next, we need to solve for \( w \). First, we divide both sides of the equation by 2:
+
+\[ 15 = 9 + w \]
+
+Then, we isolate \( w \) by subtracting 9 from both sides:
+
+\[ w = 15 - 9 \]
+\[ w = 6 \]
+
+Therefore, the width of the rectangle is \(\boxed{6}\)."
+Qwen/Qwen2.5-Coder-3B-Instruct,reasoning_008,A worker earns $18 per hour and works 7.5 hours. How much does the worker earn?,135,135,135,135,True,6.78,"To determine how much the worker earns, we need to follow these steps:
+
+1. Identify the hourly wage of the worker.
+2. Identify the number of hours the worker works.
+3. Multiply the hourly wage by the number of hours worked to find the total earnings.
+
+Let's go through each step in detail:
+
+1. The hourly wage of the worker is $18.
+2. The worker works 7.5 hours.
+3. To find the total earnings, we multiply the hourly wage by the number of hours worked:
+   \[
+   18 \text{ dollars/hour} \times 7.5 \text{ hours} = 135 \text{ dollars}
+   \]
+
+Therefore, the worker earns \(\boxed{135}\) dollars."
